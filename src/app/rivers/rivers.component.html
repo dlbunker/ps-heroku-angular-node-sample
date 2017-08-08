@@ -1,0 +1,22 @@
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>River</th>
+      <th>Run</th>
+      <th>Location</th>
+      <th>Class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let river of rivers | async">
+      <td>{{river.river_name}}</td>
+      <td>{{river.run_name}}</td>
+      <td>{{river.location}}</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+<div class="spinner" *ngIf="!(rivers | async)?.length">
+  <div class="double-bounce1"></div>
+  <div class="double-bounce2"></div>
+</div>
