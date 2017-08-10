@@ -9,7 +9,7 @@ export class RiversService {
   constructor(private http: Http) { }
 
   getRivers(): Observable<River[]> {
-     return this.http.get("/rails/rivers")
+     return this.http.get("/server_api/rivers")
         .map((res: Response) => res.json())
         .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }

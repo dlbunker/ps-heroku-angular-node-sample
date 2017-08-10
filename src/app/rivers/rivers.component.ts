@@ -7,12 +7,10 @@ import { RiversService } from '../rivers.service';
 })
 export class RiversComponent implements OnInit {
   rivers;
-  public loading: boolean;
 
   constructor(private service: RiversService) { }
 
   ngOnInit() {
-    this.loading = true;
     this.rivers = this.service.getRivers();
   }
 
