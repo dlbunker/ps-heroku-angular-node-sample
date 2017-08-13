@@ -15,21 +15,20 @@ const app = express();
 // Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist')));
 
-//TODO: Replace proxy url's with your Heroku URL's
 if(process.env.SERVER_TYPE == "rails") {
   // proxy route to rails app
   console.log("Using rails server");
-  app.use('/server_api', proxy('https://guarded-wave-47344.herokuapp.com/'));
+  app.use('/server_api', proxy(process.env.RAILS_SERVER));
 }
 else if(process.env.SERVER_TYPE == "django") {
   // proxy route to django app
   console.log("Using django server");
-  app.use('/server_api', proxy('https://hidden-fjord-97547.herokuapp.com/'));
+  app.use('/server_api', proxy(process.env.DJANGO_SERVER));
 }
 else if(process.env.SERVER_TYPE == "boot") {
   // proxy route to boot app
   console.log("Using boot server");
-  app.use('/server_api', proxy('https://sleepy-basin-44906.herokuapp.com/'));
+  app.use('/server_api', proxy(process.env.BOOT_SERVER));
 }
 else {
   console.log("Using node server");
