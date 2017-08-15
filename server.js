@@ -35,7 +35,7 @@ else {
   var Client = require('node-rest-client').Client;
   var client = new Client();
 
-  app.get('/server_api/rivers', function(req, res) {
+  app.get('/server_api/api/v1/rivers', function(req, res) {
     client.get("http://riverbrain.com/api/v1/rivers", function (data, response) {
         res.send(data);
     });
